@@ -21,11 +21,8 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a></li>
-     
         <li><a href="#class-diagram-representing-the-multidimensional-model-in-uml-notation">Class diagram representing the multidimensional model in UML notation
 </a></li>
-      
-    </li>
     <li>
       <a href="href="#relational-model-of-the-supporting-database">Relational model of the supporting database.</a>
       
@@ -46,8 +43,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[product-screenshot]
-
+[![Product Name Screen Shot][product-screenshot]]
+                                  
 Aim
 Design and develop two Mondrian cubes and their supporting database, using as source three existing tables,obtained     through     an     existing integration process.
 Task
