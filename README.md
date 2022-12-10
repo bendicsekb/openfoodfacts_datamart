@@ -27,8 +27,6 @@
       <a href="href="#relational-model-of-the-supporting-database">Relational model of the supporting database.</a>
       </li>
         <li><a href="#mdx-code-for-these-queries">MDX code for these queries</a></li>
-      
-    </li>
     <li><a href="#usage">MDX code for at least two other queries of your choice.</a></li>
   </ol>
 </details>
