@@ -1,7 +1,7 @@
 <div align="center">
-    <img src="unirennes1.png" alt="Logo" width="80" height="80">
+    <img src="unirennes1.png" alt="Logo">
     <br>
-     <img src="istic1ren.png" alt="Logo" width="80" height="80">
+     <img src="istic1ren.png" alt="Logo">
 
   <h3 align="center">Université Rennes 1, EIT Digital Data Science </h3>
   <h3 align="center"> Data warehouse (EDD), proffesor Marc Bousse </h3>
@@ -20,7 +20,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">About The Project</a></li>
      
         <li><a href="#class-diagram-representing-the-multidimensional-model-in-uml-notation">Class diagram representing the multidimensional model in UML notation
 </a></li>
