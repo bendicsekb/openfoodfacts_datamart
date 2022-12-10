@@ -5,9 +5,9 @@
 
   <h3 align="center">Université Rennes 1, EIT Digital Data Science </h3>
   <h3 align="center"> Data warehouse (EDD), proffesor Marc Bousse </h3>
-  <h3 align="center">  Marta  </h3>
-  <h3 align="center">  Bendicsek  </h3>
-  <h3 align="center">  Daniel  </h3>
+  <h3 align="center">  Marta Barbara Rzechowska  </h3>
+  <h3 align="center">  Marton Bendeguz Bendicsek  </h3>
+  <h3 align="center">  Daniel Marouf  </h3>
   
   <p align="center">
     Datamart for open food facts data warehouse with Pentaho.
@@ -21,16 +21,16 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a></li>
-        <li><a href="#class-diagram-representing-the-multidimensional-model-in-uml-notation">Class diagram representing the multidimensional model in UML notation
-</a></li>
+        <li><a href="#class-diagram-representing-the-multidimensional-model-in-uml-notation">Class diagram representing the multidimensional model in UML notation.</a></li>
     <li>
-      <a href="href="#relational-model-of-the-supporting-database">Relational model of the supporting database.</a>
+      <a href="#relational-model-of-the-supporting-database">Relational model of the supporting database.</a>
       </li>
-        <li><a href="#mdx-code-for-these-queries">MDX code for these queries</a></li>
-    <li><a href="#usage">MDX code for at least two other queries of your choice.</a></li>
+      <li>
+      <a href="href="#ktr-files-of-the-kettle-transformations-for-filling-the-dimensional-and-fact-tables">KTR files of the Kettle transformations for filling the dimensional and fact tables.</a>
+      </li>
+        <li><a href="#mdx-code-for-the-queries">MDX code for these queries.</a></li>
   </ol>
 </details>
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -55,7 +55,7 @@ Screenshots of results for queries described in steps 6 and 7.9.«Readme» docum
 
 
 
-## Class diagram representing the multidimensional model in UML notation
+## Class diagram representing the multidimensional model in UML notation.
 
 ![UML Screen Shot][uml-screenshot]
 
@@ -80,7 +80,7 @@ Screenshots about kettles
 
 Comment abount kettles
 
-## MDX code for the queries
+## MDX code for the queries.
 
 1. Number of product descriptions per contributor («creator») and year of creation, on rows
 
