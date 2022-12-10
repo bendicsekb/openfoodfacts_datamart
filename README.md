@@ -25,16 +25,11 @@
 </a></li>
     <li>
       <a href="href="#relational-model-of-the-supporting-database">Relational model of the supporting database.</a>
-      
+      </li>
         <li><a href="#mdx-code-for-these-queries">MDX code for these queries</a></li>
       
     </li>
     <li><a href="#usage">MDX code for at least two other queries of your choice.</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -43,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]
+![Product Name Screen Shot][product-screenshot]
                                   
 Aim
 Design and develop two Mondrian cubes and their supporting database, using as source three existing tables,obtained     through     an     existing integration process.
