@@ -1,24 +1,13 @@
-[![Contributors][contributors-url]
-
-
-
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="unirennes1.png" alt="Logo" width="80" height="80">
+    <br>
      <img src="istic1ren.png" alt="Logo" width="80" height="80">
-  </a>
 
   <h3 align="center">Université Rennes 1, EIT Digital Data Science </h3>
   <h3 align="center"> Data warehouse (EDD), proffesor Marc Bousse </h3>
   <h3 align="center">  Marta  </h3>
   <h3 align="center">  Bendicsek  </h3>
   <h3 align="center">  Daniel  </h3>
-  
-  
-Datamart for open food facts data warehouse with Pentaho.
-
   
   <p align="center">
     Datamart for open food facts data warehouse with Pentaho.
@@ -27,24 +16,23 @@ Datamart for open food facts data warehouse with Pentaho.
 
 
 
-<!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
+     
+        <li><a href="#class-diagram-representing-the-multidimensional-model-in-uml-notation">Class diagram representing the multidimensional model in UML notation
+</a></li>
+      
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
+      <a href="href="#relational-model-of-the-supporting-database">Relational model of the supporting database.</a>
+      
+        <li><a href="#mdx-code-for-these-queries">MDX code for these queries</a></li>
+      
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#usage">MDX code for at least two other queries of your choice.</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -58,7 +46,7 @@ Datamart for open food facts data warehouse with Pentaho.
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]
+[product-screenshot]
 
 Aim
 Design and develop two Mondrian cubes and their supporting database, using as source three existing tables,obtained     through     an     existing integration process.
