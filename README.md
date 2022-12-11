@@ -80,7 +80,12 @@ Relation diagram is representing the tables we used in the project. It consist o
 
 ![Kettle Dimensions Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/dimensions_kettle.png)
 
-Comments
+We selected distinct values from pnns, contributor. For date dimension we choose all the unique dates from both date of creation and date of modification columns. For barcode dimension, we selected the one value of an product name for a barcode. We made an assumption that the same barcode means the same product – even if some small details can occur, like change in the package size. Nutrition table isn’t included, as we decided to degrade it and not have an separate dimension table.
+SQL queries for barcode and date dimensions:
+```
+SELECT max(barcode)as barcode, max(product_name) as product_name from OFF_version_produit group by barcode;
+SELECT distinct `date_creation` FROM `OFF_version_produit` UNION SELECT distinct `date_modification` FROM `OFF_version_produit`;
+```
 
 2. Product facts in Kettle
 
