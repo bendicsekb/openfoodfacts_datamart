@@ -51,7 +51,7 @@ Class diagram representing the multidimensional model in UML notation.XML code o
 Screenshots of results for queries described in steps 6 and 7.9.«Readme» document explaining design choices for steps 1, 3, 5 and 7 above, plus comments on queryresults (step 8).
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 
 
@@ -62,7 +62,7 @@ Screenshots of results for queries described in steps 6 and 7.9.«Readme» docum
 In the process of completing the given task, we created UML diagram. It represent the structure of our schema. It consists of 2 cubes (product and product version). Product cubes has an measure number of products, product version cube – number of versions. Cubes are described by 5 dimensions (date, barcode, contributor, nutrition and pnns).
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 
 
@@ -154,7 +154,7 @@ The non empty clause is used to exclude any empty or null values from the result
 The crossjoin function is then used to combine the members of the filtered dim_usage_barcode dimension with the children of the Nutrition_score dimension. This shows the nutrition scores for each product in the biscuits and cakes category, grouped by year. The where clause is then used to further filter the result set to only include products that are in the biscuits and cakes PNNS category. With this result it is possible to track changes in nutrition score for certain products. With the category restricted to biscuits and cakes, it is easy to see the information in one page. 
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 [product-screenshot]: images/screenshot.png
 [sql-screenshot]: images/MySQL_Relational.png
