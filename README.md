@@ -80,7 +80,7 @@ Relation diagram is representing the tables we used in the project. It consist o
 
 ![Kettle Dimensions Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/dimensions_kettle.png)
 
-We selected distinct values from pnns, contributor. For date dimension we choose all the unique dates from both date of creation and date of modification columns. For barcode dimension, we selected the one value of an product name for a barcode. We made an assumption that the same barcode means the same product – even if some small details can occur, like change in the package size. Nutrition table isn’t included, as we decided to degrade it and not have an separate dimension table. <br />
+We selected distinct values from pnns and contributor tables. For date dimension we choose all the unique dates from both date of creation and date of modification columns. For barcode dimension, we selected the one value of an product name for each barcode. We made an assumption that the same barcode means the same product – even if some small details can occur, like change in the package size. Nutrition table isn’t included, as we decided to degrade it and not have an separate dimension table. <br />
 SQL queries for barcode and date dimensions:
 ```
 SELECT max(barcode)as barcode, max(product_name) as product_name from OFF_version_produit group by barcode;
@@ -91,13 +91,13 @@ SELECT distinct `date_creation` FROM `OFF_version_produit` UNION SELECT distinct
 
 ![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_facts_kettle.png)
 
-For the product fact tables we selected barcode, date of creation and pseudo from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact with dimensional tables. In the product fact table we selected the sequential numbers of the dimension values replacing the original values with expectation of a barcode, which is an unique key by itself. 
+For the product fact tables we selected barcode, date of creation and pseudo from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact with dimensional tables. In the product fact table we selected the sequential numbers of the dimension values, replacing the original values. The expectation is a barcode, which is an unique key by itself. 
 
 3. Product vesrsion facts in Kettle
 
 ![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_version_facts_kettle.png)
 
-For a product version fact table we selected barcode, date of creation, date of modification, pnns2, pseudo and nutrition score fr from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact and dimensional tables. In the product version fact table we selected the sequential numbers of the dimension values replacing the original values with expectation of a barcode, which is an unique key by itself and nutrition score. We don’t have a join for nutrition score as we degraded dimension and we use values from an original database. 
+For a product version fact table we selected barcode, date of creation, date of modification, pnns2, pseudo and nutrition score fr from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact and dimensional tables. In the product version fact table we selected the sequential numbers of the dimension values replacing the original values. The 2 expectations are barcode, which is an unique key by itself, and nutrition score. We don’t have a join for nutrition score as we degraded dimension and we use values from an original database. 
 
 ## MDX code for the queries.
 
