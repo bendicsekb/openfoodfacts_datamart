@@ -101,7 +101,7 @@ For a product version fact table we selected barcode, date of creation, date of 
 
 ## MDX code for the queries.
 
-1. Number of product descriptions per contributor («creator») and year of creation, on rows
+### 1. Number of product descriptions per contributor («creator») and year of creation, on rows
 ```
 select {[Measures].[nb_Description]} on columns,
 non empty {crossjoin([dim_usage_date].[Year].Members, [dim_contributor].[Contributor].Members)} on rows
@@ -109,10 +109,10 @@ from Product
 ```
 ![MDX Query 1 Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_descriptions_per_contributor.png)
 
-Comment about MDX result
+#### Comment about MDX result
 The query gives a large result, each contributor's name in groups of creation years. The non empty clause is used to exclude any empty or null values in the result set, which improves the readability of the result. The crossjoin function is used to combine the members of the dim_usage_date and dim_contributor dimensions, which shows the number of product descriptions per contributor and year.
 
-2. Number of versions per month on rows and pnns1 values on columns of all product descriptions created in 2017.
+### 2. Number of versions per month on rows and pnns1 values on columns of all product descriptions created in 2017.
 ```
 select {[dim_usage_PNNS.PNNS_values].[PNNS1].Members} ON COLUMNS,
   Generate({[dim_usage_date_creation.Month_Year].[2017]}, Descendants([dim_usage_date_creation].CurrentMember, [dim_usage_date_modification.Month_Year].[Month])) ON ROWS
@@ -120,11 +120,11 @@ from [Product_version]
 ```
 ![MDX Query 2 Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/versions_per_month_of_all_descriptions.png)
 
-Comment about MDX result
+#### Comment about MDX result
 
 The Generate function is used to create a set of members that represents the descendants of the current member of the dim_usage_date_creation dimension, down to the level of the Month member of the dim_usage_date_modification dimension. This shows the number of versions per month, grouped by PNNS1 value. The resulting matrix is very sparse, because only a few product descriptions are created or modified in certain months or for certain PNNS1 categories.
 
-3. Products, that had more than 1 update in 2018.
+### 3. Products, that had more than 1 update in 2018.
 ```
 select [Measures].[nb_Version] on columns,
 filter({[dim_usage_barcode].Members}, [Measures].[nb_Version].CurrentMember > 1) on rows
@@ -133,13 +133,13 @@ where [dim_usage_date_modification].[Year].[2018]
 ```
 ![MDX Query 3 Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/products_more_than_one_update.png)
 
-Comment about MDX result
+#### Comment about MDX result
 
 The filter function is used to select only those members of the dim_usage_barcode dimension that have a value greater than 1 for the nb_Version measure. This effectively filters out any products that had only one update in 2018, and only includes those that had more than one update.
 The where clause is then used to further filter the result set to only include product updates that occurred in 2018. This ensures that only product updates from that specific year are included in the final result set. The result is a list of product names in the specified PNNS category, with the respective number of changes. There aren't many results, however this is expected, because updates are quite infrequent.
 
 
-4. Nutrition scores by year for products in biscuits and cakes (PNNS category).
+### 4. Nutrition scores by year for products in biscuits and cakes (PNNS category).
 ```
 select non empty [dim_usage_date_modification].[Year].Members on columns,
 non empty crossjoin(filter(([dim_usage_barcode].Children), [Measures].[nb_Version] >= 2), [Nutrition_score].Children) on rows
@@ -148,7 +148,7 @@ where [dim_usage_PNNS].[PNNS2].[Biscuits and cakes]
 ```
 ![MDX Query 4 Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/nutrition_score_by_year_cakes.png)
 
-Comment about MDX result
+#### Comment about MDX result
                                        
 The non empty clause is used to exclude any empty or null values from the result set, which can improve the readability of the results. The filter function is then used to select only those members of the dim_usage_barcode dimension that have a value of 2 or greater for the nb_Version measure, which effectively filters out any products that had only one update in the given time period.
 The crossjoin function is then used to combine the members of the filtered dim_usage_barcode dimension with the children of the Nutrition_score dimension. This shows the nutrition scores for each product in the biscuits and cakes category, grouped by year. The where clause is then used to further filter the result set to only include products that are in the biscuits and cakes PNNS category. With this result it is possible to track changes in nutrition score for certain products. With the category restricted to biscuits and cakes, it is easy to see the information in one page. 
