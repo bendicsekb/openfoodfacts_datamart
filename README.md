@@ -111,5 +111,5 @@ Comment abount MDX result
 
 [product-screenshot]: screenshot.png
 [uml-screenshot]: UML_OpenFoodFacts.png
-[sql-screenshot]: SQL_Relational.png
+[sql-screenshot]: MySQL_Relational.png
 
