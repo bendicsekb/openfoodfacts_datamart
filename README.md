@@ -26,7 +26,7 @@
       <a href="#relational-model-of-the-supporting-database">Relational model of the supporting database.</a>
       </li>
       <li>
-      <a href="href="#ktr-files-of-the-kettle-transformations-for-filling-the-dimensional-and-fact-tables">KTR files of the Kettle transformations for filling the dimensional and fact tables.</a>
+      <a href="#ktr-files-of-the-kettle-transformations-for-filling-the-dimensional-and-fact-tables">KTR files of the Kettle transformations for filling the dimensional and fact tables.</a>
       </li>
         <li><a href="#mdx-code-for-the-queries">MDX code for these queries.</a></li>
   </ol>
