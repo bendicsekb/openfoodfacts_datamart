@@ -155,6 +155,7 @@ The crossjoin function is then used to combine the members of the filtered dim_u
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+[back to top](#about-the-project)
 
 
 [product-screenshot]: images/screenshot.png
