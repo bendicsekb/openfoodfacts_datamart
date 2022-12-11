@@ -71,7 +71,7 @@ In the process of completing the given task, we created UML diagram. It represen
 
 ![Relational Screen Shot][sql-screenshot]
 
-Comments about Relational diagramm
+Relation diagram is representing the tables we used in the project. It consist of 4 dimensions tables and 2 fact tables. During design, we decided to degrade a nutrition score dimension and not represent it in separate table.
 
 
 ## KTR files of the Kettle transformations for filling the dimensional and fact tables.
