@@ -99,6 +99,9 @@ For the product fact tables we selected barcode, date of creation and pseudo fro
 
 For a product version fact table we selected barcode, date of creation, date of modification, pnns2, pseudo and nutrition score fr from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact and dimensional tables. In the product version fact table we selected the sequential numbers of the dimension values replacing the original values. The 2 expectations are barcode, which is an unique key by itself, and nutrition score. We don’t have a join for nutrition score as we degraded dimension and we use values from an original database. 
 
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
+
+
 ## MDX code for the queries.
 
 ### 1. Number of product descriptions per contributor («creator») and year of creation, on rows
