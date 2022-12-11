@@ -1,7 +1,7 @@
 <div align="center">
-    <img src="unirennes1.png" alt="Logo">
+    <img src="images/unirennes1.png" alt="Logo">
     <br>
-     <img src="istic1ren.png" alt="Logo">
+     <img src="images/istic1ren.png" alt="Logo">
 
   <h3 align="center">Université Rennes 1, EIT Digital Data Science </h3>
   <h3 align="center"> Data warehouse (EDD), proffesor Marc Bousse </h3>
@@ -57,7 +57,7 @@ Screenshots of results for queries described in steps 6 and 7.9.«Readme» docum
 
 ## Class diagram representing the multidimensional model in UML notation.
 
-![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/UML_OpenFoodFacts-UML_design.drawio.png)
+![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/UML_OpenFoodFacts-UML_design.drawio.png)
 
 In the process of completing the given task, we created UML diagram. It represent the structure of our schema. It consists of 2 cubes (product and product version). Product cubes has an measure number of products, product version cube – number of versions. Cubes are described by 5 dimensions (date, barcode, contributor, nutrition and pnns).
 
@@ -78,19 +78,19 @@ Relation diagram is representing the tables we used in the project. It consist o
 
 1. Dimensions in Kettle
 
-![Kettle Dimensions Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/dimensions_kettle.png)
+![Kettle Dimensions Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/dimensions_kettle.png)
 
 Comments
 
 2. Product facts in Kettle
 
-![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/product_facts_kettle.png)
+![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_facts_kettle.png)
 
 Comments
 
 3. Product vesrsion facts in Kettle
 
-![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/product_version_facts_kettle.png)
+![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_version_facts_kettle.png)
 
 Comments
 
@@ -102,7 +102,7 @@ select {[Measures].[nb_Description]} on columns,
 non empty {crossjoin([dim_usage_date].[Year].Members, [dim_contributor].[Contributor].Members)} on rows
 from Product
 ```
-Screenshot about MDX result
+![MDX Query 1 Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_descriptions_per_contributor.png)
 
 Comment abount MDX result
 
@@ -112,7 +112,8 @@ select {[dim_usage_PNNS.PNNS_values].[PNNS1].Members} ON COLUMNS,
   Generate({[dim_usage_date_creation.Month_Year].[2017]}, Descendants([dim_usage_date_creation].CurrentMember, [dim_usage_date_modification.Month_Year].[Month])) ON ROWS
 from [Product_version]
 ```
-Screenshot about MDX result
+![MDX Query 2 Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/versions_per_month_of_all_descriptions.png)
+
 
 Comment abount MDX result
 
@@ -123,7 +124,7 @@ filter({[dim_usage_barcode].Members}, [Measures].[nb_Version].CurrentMember > 1)
 from [Product_version]
 where [dim_usage_date_modification].[Year].[2018]
 ```
-Screenshot about MDX result
+![MDX Query 3 Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/products_more_than_one_update.png)
 
 Comment abount MDX result
 
@@ -134,14 +135,13 @@ non empty crossjoin(filter(([dim_usage_barcode].Children), [Measures].[nb_Versio
 from [Product_version]
 where [dim_usage_PNNS].[PNNS2].[Biscuits and cakes]
 ```
-Screenshot about MDX result
+![MDX Query 4 Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/nutrition_score_by_year_cakes.png)
 
 Comment abount MDX result
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-[product-screenshot]: screenshot.png
-[uml-screenshot]: UML_OpenFoodFacts.png
-[sql-screenshot]: MySQL_Relational.png
+[product-screenshot]: images/screenshot.png
+[sql-screenshot]: images/MySQL_Relational.png
 
