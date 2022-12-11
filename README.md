@@ -59,7 +59,7 @@ Screenshots of results for queries described in steps 6 and 7.9.«Readme» docum
 
 ![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/UML_OpenFoodFacts-UML.png)
 
-In the process of completing the given task, we created UML diagram. It represent the structure of our schema. It consists of 2 cubes (product and product version). Product cubes has an measure number of products, product version cube – number of versions. Cubes are described by 5 dimensions (date, barcode, contributor, nutrition and pnns). First, we identified the necessary measures for the problem at hand, and then the dimensions. Then we created the 2 cubes with the shared and not shared dimensions and assigned measures.
+First, we identified the necessary measures for the problem at hand, and then the dimensions. Then we created the 2 cubes with the shared and not shared dimensions and assigned measures. In the process of completing the given task, we created UML diagram. It represent the structure of our schema. It consists of 2 cubes (product and product version). Product cubes has an measure number of products, product version cube – number of versions. Cubes are described by 5 dimensions (date, barcode, contributor, nutrition and pnns). 
 
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
@@ -97,7 +97,7 @@ For the product fact tables we selected barcode, date of creation and pseudo fro
 
 ![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_version_facts_kettle.png)
 
-For a product version fact table we selected barcode, date of creation, date of modification, pnns2, pseudo and nutrition score fr from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact and dimensional tables. In the product version fact table we selected the sequential numbers of the dimension values replacing the original values. The 2 expectations are barcode, which is an unique key by itself, and nutrition score. We don’t have a join for nutrition score as we degraded dimension and we use values from an original database. 
+For a product version fact table we selected barcode, date of creation, date of modification, pnns2, pseudo and nutrition score fr from OFF_version_produit database. Then similar to the product fact table, we use a combination of the sort and marge join transformation steps to join the fact with dimensional tables. In the product version fact table we selected the sequential numbers of the dimension values replacing the original values of OFF_version_produit database. The 2 expectations are barcode, which is an unique key by itself, and nutrition score. We don’t have a join for nutrition score as we degraded dimension and we use values from an original database. 
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
