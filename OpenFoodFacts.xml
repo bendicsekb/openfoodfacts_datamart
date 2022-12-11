@@ -1,0 +1,84 @@
+<Schema name="OpenFoodFacts">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="Date">
+    <Hierarchy name="Month_Year" visible="true" hasAll="true" primaryKey="num_seq_date">
+      <Table name="DIM_DATE">
+      </Table>
+      <Level name="Year" visible="true" column="dim_date" type="Integer" internalType="int" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="generic">
+            <![CDATA[year(dim_date)]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Month" visible="true" column="dim_date" type="Integer" internalType="int" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="generic">
+            <![CDATA[month(dim_date)]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Exact Date" visible="true" column="dim_date" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PNNS">
+    <Hierarchy name="PNNS_values" visible="true" hasAll="true" primaryKey="name_PNNS2">
+      <Table name="DIM_PNNS">
+      </Table>
+      <Level name="PNNS2" visible="true" table="DIM_PNNS" column="name_PNNS2" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="PNNS1" visible="true" table="DIM_PNNS" column="name_PNNS1" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Barcode">
+    <Hierarchy name="barcode" visible="true" hasAll="true" primaryKey="barcode">
+      <Table name="DIM_BARCODE">
+      </Table>
+      <Level name="barcode" visible="true" table="DIM_BARCODE" column="barcode" nameColumn="product_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Creator">
+    <Hierarchy name="Contributor" visible="true" hasAll="true" primaryKey="num_seq_contrib">
+      <Table name="DIM_CONTRIBUTOR">
+      </Table>
+      <Level name="contributor" visible="true" table="DIM_CONTRIBUTOR" column="num_seq_contrib" nameColumn="pseudo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Product" caption="Product" visible="true" description="desc" cache="true" enabled="true">
+    <Table name="PRODUCT_FACTS">
+    </Table>
+    <DimensionUsage source="Date" name="dim_usage_date" visible="true" foreignKey="num_seq_date" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Barcode" level="barcode" name="dim_usage_barcode" visible="true" foreignKey="barcode" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Creator" level="contributor" name="dim_contributor" visible="true" foreignKey="num_seq_contrib" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="nb_Description" column="num_seq_contrib" datatype="Integer" aggregator="count" description="Number of describtion of the product" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="Product_version" visible="true" cache="true" enabled="true">
+    <Table name="PRODUCT_VERSION_FACTS">
+    </Table>
+    <DimensionUsage source="Date" usagePrefix="date_creation" name="dim_usage_date_creation" visible="true" foreignKey="num_seq_creation_date" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PNNS" name="dim_usage_PNNS" visible="true" foreignKey="Name_PNNS2" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Creator" level="contributor" name="dim_usage_creator" visible="true" foreignKey="num_seq_contrib" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Date" usagePrefix="date_modification" name="dim_usage_date_modification" visible="true" foreignKey="num_seq_modification_date" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Barcode" level="barcode" name="dim_usage_barcode" visible="true" foreignKey="barcode" highCardinality="false">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="nutrition_score" highCardinality="false" name="Nutrition_score">
+      <Hierarchy name="nutrition_score_fr" visible="true" hasAll="true">
+        <Level name="nutrition score" visible="true" column="nutrition_score" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="nb_Version" column="num_seq_modification_date" datatype="Integer" aggregator="count" description="number of product description version " visible="true">
+    </Measure>
+  </Cube>
+</Schema>
