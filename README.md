@@ -57,7 +57,7 @@ Screenshots of results for queries described in steps 6 and 7.9.«Readme» docum
 
 ## Class diagram representing the multidimensional model in UML notation.
 
-![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/UML_OpenFoodFacts-UML_design.drawio.png)
+![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/UML_OpenFoodFacts-UML.png)
 
 In the process of completing the given task, we created UML diagram. It represent the structure of our schema. It consists of 2 cubes (product and product version). Product cubes has an measure number of products, product version cube – number of versions. Cubes are described by 5 dimensions (date, barcode, contributor, nutrition and pnns).
 
