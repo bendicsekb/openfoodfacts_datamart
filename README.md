@@ -91,13 +91,13 @@ SELECT distinct `date_creation` FROM `OFF_version_produit` UNION SELECT distinct
 
 ![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_facts_kettle.png)
 
-For the product fact tables we selected barcode, date of creation and pseudo from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact with dimensional tables.
+For the product fact tables we selected barcode, date of creation and pseudo from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact with dimensional tables. In the product fact table we selected the sequential numbers of the dimension values replacing the original values with expectation of a barcode, which is an unique key by itself. 
 
 3. Product vesrsion facts in Kettle
 
 ![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_version_facts_kettle.png)
 
-For a product version fact table we selected barcode, date of creation, date of modification, pnns2, pseudo and nutrition score fr from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact and dimensional tables. We don’t have a join for nutrition score as we degraded dimension and don’t have a separate table. 
+For a product version fact table we selected barcode, date of creation, date of modification, pnns2, pseudo and nutrition score fr from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact and dimensional tables. In the product version fact table we selected the sequential numbers of the dimension values replacing the original values with expectation of a barcode, which is an unique key by itself and nutrition score. We don’t have a join for nutrition score as we degraded dimension and don’t have a separate table and we use values from an original database. 
 
 ## MDX code for the queries.
 
