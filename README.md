@@ -97,25 +97,43 @@ Comments
 ## MDX code for the queries.
 
 1. Number of product descriptions per contributor («creator») and year of creation, on rows
-
+```
+select {[Measures].[nb_Description]} on columns,
+non empty {crossjoin([dim_usage_date].[Year].Members, [dim_contributor].[Contributor].Members)} on rows
+from Product
+```
 Screenshot about MDX result
 
 Comment abount MDX result
 
 2. Number of versions per month on rows and pnns1 values on columns of all product descriptions createdin 2017.
-
+```
+select {[dim_usage_PNNS.PNNS_values].[PNNS1].Members} ON COLUMNS,
+  Generate({[dim_usage_date_creation.Month_Year].[2017]}, Descendants([dim_usage_date_creation].CurrentMember, [dim_usage_date_modification.Month_Year].[Month])) ON ROWS
+from [Product_version]
+```
 Screenshot about MDX result
 
 Comment abount MDX result
 
-3. Query 3
-
+3. Products, that had more than 1 update in 2018.
+```
+select [Measures].[nb_Version] on columns,
+filter({[dim_usage_barcode].Members}, [Measures].[nb_Version].CurrentMember > 1) on rows
+from [Product_version]
+where [dim_usage_date_modification].[Year].[2018]
+```
 Screenshot about MDX result
 
 Comment abount MDX result
 
-4. Query 4
-
+4. Nutrition scores by year for products in biscuits and cakes (PNNS category).
+```
+select non empty [dim_usage_date_modification].[Year].Members on columns,
+non empty crossjoin(filter(([dim_usage_barcode].Children), [Measures].[nb_Version] >= 2), [Nutrition_score].Children) on rows
+from [Product_version]
+where [dim_usage_PNNS].[PNNS2].[Biscuits and cakes]
+```
 Screenshot about MDX result
 
 Comment abount MDX result
