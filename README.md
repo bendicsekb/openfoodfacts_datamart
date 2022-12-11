@@ -97,7 +97,7 @@ For the product fact tables we selected barcode, date of creation and pseudo fro
 
 ![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/product_version_facts_kettle.png)
 
-For a product version fact table we selected barcode, date of creation, date of modification, pnns2, pseudo and nutrition score fr from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact and dimensional tables. In the product version fact table we selected the sequential numbers of the dimension values replacing the original values with expectation of a barcode, which is an unique key by itself and nutrition score. We don’t have a join for nutrition score as we degraded dimension and don’t have a separate table and we use values from an original database. 
+For a product version fact table we selected barcode, date of creation, date of modification, pnns2, pseudo and nutrition score fr from OFF_version_produit database. Then we use a combination of the sort and marge join transformation steps to join the fact and dimensional tables. In the product version fact table we selected the sequential numbers of the dimension values replacing the original values with expectation of a barcode, which is an unique key by itself and nutrition score. We don’t have a join for nutrition score as we degraded dimension and we use values from an original database. 
 
 ## MDX code for the queries.
 
