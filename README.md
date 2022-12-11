@@ -59,7 +59,7 @@ Screenshots of results for queries described in steps 6 and 7.9.«Readme» docum
 
 ![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/images/UML_OpenFoodFacts-UML.png)
 
-In the process of completing the given task, we created UML diagram. It represent the structure of our schema. It consists of 2 cubes (product and product version). Product cubes has an measure number of products, product version cube – number of versions. Cubes are described by 5 dimensions (date, barcode, contributor, nutrition and pnns).
+In the process of completing the given task, we created UML diagram. It represent the structure of our schema. It consists of 2 cubes (product and product version). Product cubes has an measure number of products, product version cube – number of versions. Cubes are described by 5 dimensions (date, barcode, contributor, nutrition and pnns). First, we identified the necessary measures for the problem at hand, and then the dimensions. Then we created the 2 cubes with the shared and not shared dimensions and assigned measures.
 
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
