@@ -76,9 +76,23 @@ Relation diagram is representing the tables we used in the project. It consist o
 
 ## KTR files of the Kettle transformations for filling the dimensional and fact tables.
 
-Screenshots about kettles
+1. Dimensions in Kettle
 
-Comment abount kettles
+![Kettle Dimensions Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/dimensions_kettle.png)
+
+Comments
+
+2. Product facts in Kettle
+
+![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/product_facts_kettle.png)
+
+Comments
+
+3. Product vesrsion facts in Kettle
+
+![UML Screen Shot](https://github.com/bendicsekb/openfoodfacts_datamart/blob/main/product_version_facts_kettle.png)
+
+Comments
 
 ## MDX code for the queries.
 
